@@ -1,0 +1,69 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<title>Result</title>
+		<link type="text/css" rel="stylesheet" href="stylesheet.css"/>
+	</head>
+	<body>
+		<p> <a href="#Tipp1">Tipp1</a>  </p>
+		<section>  
+   			<h1 id="Tipp1">nutze "https"</h1>
+		</section>
+		<p> <a href="#Tipp2">Tipp2</a>  </p>
+		<section>  
+   			<h1 id="Tipp2">Keine vertrauensw&uuml;rdigen Aktionen.</h1>
+			<h2>info: Was ist mitm (Man in the middle)?</h2> 
+			<iframe width="560" height="315" src="https://www.youtube.com/	embed/ZY1METeoEW8?rel=0&amp;controls=0&amp;showinfo=0" 				frameborder="0" 			allowfullscreen></iframe> 
+			<p><strong>Tipp1</strong>:Es gibt 2 Gr&uuml;nde warum du "https" nutzen solltes</p>
+			<p>1.Das "S" bei "https" steht f&uuml;r secure (sicher).</p>
+			<p>2.Kein dritter kann die daten lesen.</p>
+			<img width="560" height="315" src ="https://www.welivesecurity.com/wp-content/uploads/2016/09/HTTPS-TLS-SSL-Sicherheits.png">
+			<p>Tipp2:Wenn du in offenen Netzwerken ein Passwort bei einer beliebigen</p><p> Website eingibst kann es ein dritter 				wie ein  Man in the 			middle sehen .</p>
+			<img width="560" height="315" src ="http://winfwiki.wi-fom.de/images/5/5b/Main_the_middle1.jpg">
+			<p><a href="#Tipp1">nach oben</a></p>				         				
+		</section>
+		<script src="jquery-3.2.1.js"></script>
+		<script>/*//alert("test123");
+				$.getJSON( "tips.json", function( data ) {
+  var items = [];
+  /*$.each( data, function( key, val ) {
+    items.push( "<li id='" + key + "'>" + val + "</li>" );
+  });
+  alert("test");
+	console.log(data, items);
+  $( "<ul/>", {
+    "class": "my-new-list",
+    html: items.join( "" )
+  }).appendTo( "body" );
+}, function( error ){
+		console.log(error);
+});*/
+			var jqxhr = $.getJSON( "tips.json", function() {
+  console.log( "json load success" );
+})
+  .done(function( json ) {
+    $.each( json, function( nvhvv , obj ) {
+//    items.push( "<li id='" + key + "'>" + val + "</li>" );
+//	console.log( key );
+	console.log( obj );
+	console.log("success in json each logging");
+	document.getElementById(obj.id).innerHTML = obj.text;
+  });
+	console.log( "second success" );
+  })
+  .fail(function(gbnv , error) {
+    console.log( "error" , error);
+  })
+  .always(function() {
+    console.log( "complete" );
+  });
+ 
+// Perform other work here ...
+
+// Set another completion function for the request above
+/*jqxhr.complete(function() {
+  console.log( "second complete" );
+});*/
+		</script>
+	</body>
+</html>
