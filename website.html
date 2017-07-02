@@ -38,13 +38,21 @@
 		console.log(error);
 });*/
 			var jqxhr = $.getJSON( "tips.json", function() {
-  console.log( "success" );
+  console.log( "json load success" );
 })
   .done(function( json ) {
-    $.each( json, function( key, val ) {
+    $.each( json, function( nvhvv , obj ) {
 //    items.push( "<li id='" + key + "'>" + val + "</li>" );
-	console.log( key );
-	console.log( val );
+//	console.log( key );
+	console.log( obj );
+	console.log("success in json each logging");
+	switch (obj.id) {
+		case "Tipp1": document.getElementById("Tipp1").innerHTML = obj.text; break;
+		case "Tipp2": document.getElementById("Tipp2").innerHTML = obj.text; break;
+		case "Tipp3": document.getElementById("Tipp3").innerHTML = obj.text; break;
+		case "Tipp4": document.getElementById("Tipp4").innerHTML = obj.text; break;
+		case "Tipp5": document.getElementById("Tipp5").innerHTML = obj.text; break;
+	}
   });
 	console.log( "second success" );
   })
@@ -56,7 +64,7 @@
   });
  
 // Perform other work here ...
- 
+
 // Set another completion function for the request above
 /*jqxhr.complete(function() {
   console.log( "second complete" );
