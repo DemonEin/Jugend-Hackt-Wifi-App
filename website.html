@@ -46,13 +46,7 @@
 //	console.log( key );
 	console.log( obj );
 	console.log("success in json each logging");
-	switch (obj.id) {
-		case "Tipp1": document.getElementById("Tipp1").innerHTML = obj.text; break;
-		case "Tipp2": document.getElementById("Tipp2").innerHTML = obj.text; break;
-		case "Tipp3": document.getElementById("Tipp3").innerHTML = obj.text; break;
-		case "Tipp4": document.getElementById("Tipp4").innerHTML = obj.text; break;
-		case "Tipp5": document.getElementById("Tipp5").innerHTML = obj.text; break;
-	}
+	document.getElementById(obj.id).innerHTML = obj.text;
   });
 	console.log( "second success" );
   })
