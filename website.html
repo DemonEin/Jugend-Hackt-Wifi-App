@@ -22,5 +22,48 @@
 			<img width="560" height="315" src ="http://winfwiki.wi-fom.de/images/5/5b/Main_the_middle1.jpg">
 			<p><a href="#Tipp1">nach oben</a></p>				         				
 		</section>
+		<script src="jquery-3.2.1.js"></script>
+		<script>/*//alert("test123");
+				$.getJSON( "tips.json", function( data ) {
+  var items = [];
+  /*$.each( data, function( key, val ) {
+    items.push( "<li id='" + key + "'>" + val + "</li>" );
+  });
+  alert("test");
+	console.log(data, items);
+  $( "<ul/>", {
+    "class": "my-new-list",
+    html: items.join( "" )
+  }).appendTo( "body" );
+}, function( error ){
+		console.log(error);
+});*/
+			var jqxhr = $.getJSON( "tips.json", function() {
+  console.log( "json load success" );
+})
+  .done(function( json ) {
+    $.each( json, function( nvhvv , obj ) {
+//    items.push( "<li id='" + key + "'>" + val + "</li>" );
+//	console.log( key );
+	console.log( obj );
+	console.log("success in json each logging");
+	document.getElementById(obj.id).innerHTML = obj.text;
+  });
+	console.log( "second success" );
+  })
+  .fail(function(gbnv , error) {
+    console.log( "error" , error);
+  })
+  .always(function() {
+    console.log( "complete" );
+  });
+ 
+// Perform other work here ...
+
+// Set another completion function for the request above
+/*jqxhr.complete(function() {
+  console.log( "second complete" );
+});*/
+		</script>
 	</body>
 </html>
